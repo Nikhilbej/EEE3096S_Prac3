@@ -1,19 +1,21 @@
+#Importing modules to be used
 import RPi.GPIO as GPIO
-
+import time
+#Declaring our main function
 def main():
+    GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BOARD)
 
     ledPin = 11
-    buttonPin = 13
-
+    GPIO.setmode(GPIO.BOARD)
     GPIO.setup(ledPin, GPIO.OUT)
-    GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-
-    ledPin = 11
-    buttonPin = 13
-
-    GPIO.setup(ledPin, GPIO.OUT)
-    GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.output(ledPin, GPIO.HIGH)
+    #delay for 5 seconds to notice the LED toggling
+    time.sleep(5)
+    #Setting the LED low
+    GPIO.output(ledPin, GPIO.LOW)
+    #Cleanup any unused resources
+    GPIO.cleanup()
 
 
         
