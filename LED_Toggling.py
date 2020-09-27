@@ -5,18 +5,27 @@ import time
 def main():
     #Turning off warnings
     GPIO.setwarnings(False)
+    
     #Setting the mode
     GPIO.setmode(GPIO.BOARD)
+    
     #Choosing the pin for the LED
     ledPin = 11
-    #Setting up the pin
+    buttonPin=13
+    
+    #Setting up the pins
     GPIO.setup(ledPin, GPIO.OUT)
-    #Setting the LED pin high
-    GPIO.output(ledPin, GPIO.HIGH)
-    #delay for 5 seconds to notice the LED toggling
-    time.sleep(5)
-    #Setting the LED low
-    GPIO.output(ledPin, GPIO.LOW)
+    GPIO.setup(buttonPin,GPIO.IN)
+    
+    # wait for up to 5 seconds for an edge
+    edge = GPIO.wait_for_edge(buttonPin, GPIO.BOTH, timeout=5000)
+    if edge is None:
+        pass
+    else:
+        GPIO.output(ledPin, not GPIO.input(LED))
+    
+  
+    
 
 
 
