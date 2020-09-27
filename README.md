@@ -2,6 +2,7 @@
 A repository for prac 3 from EEE3096S 2020
 
 Explanation of code:
+
 We used a wait time of 5 seconds to detect a falling or rising edge. Our code basically inverts the state of the LED pin whenever it detects an edge. So once the button is pushed and held for 5 seconds a rising edge is detected, the the LED is turned on. Then, when the button has been released for 5 seconds the LED is turned off because the GPIO pin is set low.Five seconds may be too long but we wanted to make sure that we are able to see the LED light up for some time.
 
 A list of useful resources for this practical:
